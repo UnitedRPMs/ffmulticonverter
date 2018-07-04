@@ -1,6 +1,6 @@
 Name:       ffmulticonverter
 Version:    1.8.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    GUI File Format Converter
 
 License:    GPLv3+
@@ -52,6 +52,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+
+* Wed Jul 04 2018 David Va <davidva AT tuta DOT io> 1.8.0-2
+- Rebuilt for Python3.7
 
 * Mon Oct 02 2017 David Va <davidva AT tutanota DOT com> 1.8.0-1
 - Initial release
