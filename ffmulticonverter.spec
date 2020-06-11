@@ -1,6 +1,6 @@
 Name:       ffmulticonverter
 Version:    1.8.0
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    GUI File Format Converter
 
 License:    GPLv3+
@@ -11,6 +11,7 @@ BuildArch:  noarch
 
 BuildRequires:  pkgconfig(python3)
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-rpm-macros
 BuildRequires:  desktop-file-utils
 
 Requires:   python3-qt5
@@ -30,10 +31,10 @@ ImageMagick.
 
 
 %build
-%py3_build
+python%{python3_version} setup.py build
 
 %install
-%py3_install
+python%{python3_version} setup.py install --root=%{buildroot} --optimize=1 --skip-build
 
 
 %check
@@ -52,6 +53,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+
+* Wed Jun 10 2020 David Va <davidva AT tuta DOT io> 1.8.0-4
+- Rebuilt for python3.9
 
 * Sun Dec 29 2019 David Va <davidva AT tuta DOT io> 1.8.0-3
 - Rebuilt
